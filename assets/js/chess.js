@@ -3,14 +3,24 @@
 // Here we define the chess peices and assign a corresponding integer
 // b - black | w - white
 // P - pawn | N - knight | B - bishop | R - rook | Q - queen | K - king
-const BOARD_PIECES = { 
-  empty: 0, 
-  wP: 1, wN: 2, wB: 3, wR: 4, wQ: 5, wK: 6,
-  bP: 7, bN: 8, bB: 9, bR: 10, bQ: 11, bK: 12 
+const BOARD_PIECES = {
+  empty: 0,
+  wP: 1,
+  wN: 2,
+  wB: 3,
+  wR: 4,
+  wQ: 5,
+  wK: 6,
+  bP: 7,
+  bN: 8,
+  bB: 9,
+  bR: 10,
+  bQ: 11,
+  bK: 12,
 };
 
 // Colors for the board
-const COLORS = { white: 0, black: 1, both: 2 }
+const COLORS = { white: 0, black: 1, both: 2 };
 
 // I assigned the board with 120 squares for a safety net to prevent off-board moves
 const BOARD_SQUARES = 120;
@@ -29,34 +39,63 @@ const BOARD_SQUARES = 120;
 // 110 111 112 113 114 115 116 117 118 119
 
 // Key squares define the start and end of the board within the boardSquares array
-const KEY_SQUARES = { 
-  a1: 21, b1: 22, c1: 23, d1: 24, e1: 25, f1: 26, g1: 27, h1: 28,
-  a8: 91, b8: 92, c8: 93, d8: 94, e8: 95, f8: 96, g8: 97, h8: 98,
-  offBoard: 100
+const KEY_SQUARES = {
+  a1: 21,
+  b1: 22,
+  c1: 23,
+  d1: 24,
+  e1: 25,
+  f1: 26,
+  g1: 27,
+  h1: 28,
+  a8: 91,
+  b8: 92,
+  c8: 93,
+  d8: 94,
+  e8: 95,
+  f8: 96,
+  g8: 97,
+  h8: 98,
+  offBoard: 100,
 };
 
 // Files for horizontal (x) axis
-const FILES = { 
-  fileA: 0, 
-  fileB: 1, fileC: 2, fileD: 3, fileE: 4, 
-  fileF: 5, fileG: 6, fileH: 7, fileNone: 8 
+const FILES = {
+  fileA: 0,
+  fileB: 1,
+  fileC: 2,
+  fileD: 3,
+  fileE: 4,
+  fileF: 5,
+  fileG: 6,
+  fileH: 7,
+  fileNone: 8,
 };
 
 // Ranks for vertical (y) axis
-const RANKS = { 
-  rank1: 0, 
-  rank2: 1, rank3: 2, rank4: 3, rank5: 4, 
-  rank6: 5, rank7: 6, rank8: 7, rankNone: 8 
+const RANKS = {
+  rank1: 0,
+  rank2: 1,
+  rank3: 2,
+  rank4: 3,
+  rank5: 4,
+  rank6: 5,
+  rank7: 6,
+  rank8: 7,
+  rankNone: 8,
 };
 
 // Function to return the index of the current square
 function fileRankBoard(file, rank) {
-  return (21 + file) + (rank * 10);
+  return 21 + file + rank * 10;
 }
 
 const createBoard = () => {
   // Create an array with 120 elements, initialized to offBoard
-  const boardArray = Array.from({ length: BOARD_SQUARES }, () => KEY_SQUARES.offBoard);
+  const boardArray = Array.from(
+    { length: BOARD_SQUARES },
+    () => KEY_SQUARES.offBoard
+  );
 
   // Define the range for the central 8x8 square
   const startRank = RANKS.rank1;
@@ -76,9 +115,9 @@ const createBoard = () => {
 
 const chessBoard = createBoard();
 
-console.log(chessBoard[99])
-console.log(chessBoard[KEY_SQUARES.e8])
-console.log(chessBoard[KEY_SQUARES.f1])
+console.log(chessBoard[99]);
+console.log(chessBoard[KEY_SQUARES.e8]);
+console.log(chessBoard[KEY_SQUARES.f1]);
 
 // const chessBoard = [
 //   ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
@@ -102,26 +141,64 @@ class Piece {
     let type, color;
 
     switch (pieceType) {
-      case BOARD_PIECES.wP: type= 'Pawn'; color= 'White'; break; 
-      case BOARD_PIECES.wN: type= 'Knight'; color= 'White'; break; 
-      case BOARD_PIECES.wB: type= 'Bishop'; color= 'White'; break; 
-      case BOARD_PIECES.wR: type= 'Rook'; color= 'White'; break; 
-      case BOARD_PIECES.wQ: type= 'Queen'; color= 'White'; break; 
-      case BOARD_PIECES.wK: type= 'King'; color= 'White'; break; 
-      case BOARD_PIECES.bP: type= 'Pawn'; color= 'Black'; break; 
-      case BOARD_PIECES.bN: type= 'Knight'; color= 'Black'; break; 
-      case BOARD_PIECES.bB: type= 'Bishop'; color= 'Black'; break; 
-      case BOARD_PIECES.bR: type= 'Rook'; color= 'Black'; break; 
-      case BOARD_PIECES.bQ: type= 'Queen'; color= 'Black'; break; 
-      case BOARD_PIECES.bK: type= 'King'; color = 'Black'; break;
-      default: color = 'None'; type = 'Empty';
+      case BOARD_PIECES.wP:
+        type = "Pawn";
+        color = "White";
+        break;
+      case BOARD_PIECES.wN:
+        type = "Knight";
+        color = "White";
+        break;
+      case BOARD_PIECES.wB:
+        type = "Bishop";
+        color = "White";
+        break;
+      case BOARD_PIECES.wR:
+        type = "Rook";
+        color = "White";
+        break;
+      case BOARD_PIECES.wQ:
+        type = "Queen";
+        color = "White";
+        break;
+      case BOARD_PIECES.wK:
+        type = "King";
+        color = "White";
+        break;
+      case BOARD_PIECES.bP:
+        type = "Pawn";
+        color = "Black";
+        break;
+      case BOARD_PIECES.bN:
+        type = "Knight";
+        color = "Black";
+        break;
+      case BOARD_PIECES.bB:
+        type = "Bishop";
+        color = "Black";
+        break;
+      case BOARD_PIECES.bR:
+        type = "Rook";
+        color = "Black";
+        break;
+      case BOARD_PIECES.bQ:
+        type = "Queen";
+        color = "Black";
+        break;
+      case BOARD_PIECES.bK:
+        type = "King";
+        color = "Black";
+        break;
+      default:
+        color = "None";
+        type = "Empty";
     }
     return new Piece(color, type);
   }
 }
 
 const whitePawn = Piece.createPiece(BOARD_PIECES.wP);
-console.log(whitePawn)
+console.log(whitePawn);
 
 // Player constructor to create players(b&w)
 class Player {
@@ -166,11 +243,20 @@ class Player {
   }
 }
 
+// Object to change the turn for each player;
+let playerTurns = {
+  white: true,
+  black: false,
+  changeTurn() {
+    this.white = !this.white;
+    this.black = !this.black;
+  },
+};
+
 // function to check if King is in check
 function isKingInCheck() {
   //check after each move to see if king is in check, if king is in check, check if king can be saved, if not game over
 }
-
 
 // const squares = document.querySelectorAll('.square');
 // const peice = document.querySelector('.peice');
