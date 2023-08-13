@@ -55,6 +55,11 @@ h1 {
     background-color: #336699;
 }
 
+.light:hover, .dark:hover {
+    background-color: #10C212;
+    border: 4px solid #2EFF31;
+}
+
 
 /*--------------------
     MEDIA QUERIES
