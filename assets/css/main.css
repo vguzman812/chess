@@ -28,6 +28,8 @@ h1 {
     width: 500px;
     margin: 30px auto;
     
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /* Code for the outer edges of the board */
@@ -68,8 +70,8 @@ h1 {
 /* resize chessboard for tablets */
 @media screen and (max-width: 768px){
     .board {
-        height: 350px;
-        width: 350px;
+        height: 450px;
+        width: 450px;
     }
     
 }
@@ -77,8 +79,8 @@ h1 {
 /* resize chessboards for phone screens */
 @media screen and (max-width: 480px){
     .board {
-        height: 250px;
-        width: 250px;
+        height: 350px;
+        width: 350px;
     }
 
     h1 {
