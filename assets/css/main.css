@@ -2,22 +2,32 @@
     box-sizing: border-box;
 }
 
+
+/*--------------------
+    CHESSBOARD
+--------------------*/
+
 .board {
+    /* display board in 10x10 grid */
     display: grid;
     grid-template-columns: 1fr repeat(8, 2fr) 1fr;
-    grid-template-rows: 1fr repeat(8, 2fr) 1fr;;
+    grid-template-rows: 1fr repeat(8, 2fr) 1fr;
+
+    /* size and center board on screen */
     height: 500px;
     width: 500px;
     margin-left: auto;
     margin-right: auto;
 }
 
+/* Code for the outer edges of the board */
 .board-code {
     background-color: #000;
     color: #fff;
     text-align: center;
 }
 
+/* Center text in outer edges of board */
 .board-code span {
     display: block;
     position: relative;
@@ -25,14 +35,22 @@
     transform: translateY(-50%);
 }
 
+/* light colored squares on board */
 .light {
     background-color: #EFF7FA;
 }
 
+/* dark colored squares on board */
 .dark {
     background-color: #336699;
 }
 
+
+/*--------------------
+    MEDIA QUERIES
+--------------------*/
+
+/* resize chessboard for tablets */
 @media screen and (max-width: 768px){
     .board {
         height: 350px;
@@ -41,6 +59,7 @@
     
 }
 
+/* resize chessboards for phone screens */
 @media screen and (max-width: 480px){
     .board {
         height: 250px;
