@@ -2,6 +2,16 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #81C8FF;
+    text-align: center;
+    color: #000;
+}
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
 
 /*--------------------
     CHESSBOARD
@@ -16,8 +26,8 @@
     /* size and center board on screen */
     height: 500px;
     width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 30px auto;
+    
 }
 
 /* Code for the outer edges of the board */
@@ -64,6 +74,10 @@
     .board {
         height: 250px;
         width: 250px;
+    }
+
+    h1 {
+        font-size: 36px;
     }
     
 }
