@@ -1,3 +1,50 @@
 * {
-    color: blue;
+    box-sizing: border-box;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: 1fr repeat(8, 2fr) 1fr;
+    grid-template-rows: 1fr repeat(8, 2fr) 1fr;;
+    height: 500px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.board-code {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+.board-code span {
+    display: block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.light {
+    background-color: #EFF7FA;
+}
+
+.dark {
+    background-color: #336699;
+}
+
+@media screen and (max-width: 768px){
+    .board {
+        height: 350px;
+        width: 350px;
+    }
+    
+}
+
+@media screen and (max-width: 480px){
+    .board {
+        height: 250px;
+        width: 250px;
+    }
+    
 }
