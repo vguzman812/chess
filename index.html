@@ -1,134 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Pawn to e4</title>
-		<link rel="stylesheet" href="assets/css/reset.css">
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body>
-		<h1>PAWN TO E4</h1>
-		
-		<!-- The Chessboard start -->
-		<section class="board">
-			<div class="board-code"></div>
-			<div class="board-code"><span>A</span></div>
-			<div class="board-code"><span>B</span></div>
-			<div class="board-code"><span>C</span></div>
-			<div class="board-code"><span>D</span></div>
-			<div class="board-code"><span>E</span></div>
-			<div class="board-code"><span>F</span></div>
-			<div class="board-code"><span>G</span></div>
-			<div class="board-code"><span>H</span></div>
-			<div class="board-code"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pawn to e4</title>
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <h1>PAWN TO E4</h1>
 
-			<div class="board-code"><span>8</span></div>
-			<div id="A8" class="light"></div>
-			<div id="B8" class="dark"></div>
-			<div id="C8" class="light"></div>
-			<div id="D8" class="dark"></div>
-			<div id="E8" class="light"></div>
-			<div id="F8" class="dark"></div>
-			<div id="G8" class="light"></div>
-			<div id="H8" class="dark"></div>
-			<div class="board-code"><span>8</span></div>
+    <!-- The Chessboard start -->
+    <section class="board">
+      <div class="board-code"></div>
+      <div class="board-code"><span>A</span></div>
+      <div class="board-code"><span>B</span></div>
+      <div class="board-code"><span>C</span></div>
+      <div class="board-code"><span>D</span></div>
+      <div class="board-code"><span>E</span></div>
+      <div class="board-code"><span>F</span></div>
+      <div class="board-code"><span>G</span></div>
+      <div class="board-code"><span>H</span></div>
+      <div class="board-code"></div>
 
-			<div class="board-code"><span>7</span></div>
-			<div id="A7" class="dark"></div>
-			<div id="B7" class="light"></div>
-			<div id="C7" class="dark"></div>
-			<div id="D7" class="light"></div>
-			<div id="E7" class="dark"></div>
-			<div id="F7" class="light"></div>
-			<div id="G7" class="dark"></div>
-			<div id="H7" class="light"></div>
-			<div class="board-code"><span>7</span></div>
+      <div class="board-code"><span>8</span></div>
+      <div id="A8" class="light">
+        <img
+          src="assets/images/chess-rook-solid.svg"
+          alt="Rook piece"
+          id="black-rook-1"
+          class="chess-piece"
+        />
+      </div>
+      <div id="B8" class="dark">
+        <img
+          src="assets/images/chess-knight-solid.svg"
+          alt="Knight piece"
+          id="black-knight-1"
+          class="chess-piece"
+        />
+      </div>
+      <div id="C8" class="light">
+        <img
+          src="assets/images/chess-bishop-solid.svg"
+          alt="bishop piece"
+          id="black-bishop-1"
+          class="chess-piece"
+        />
+      </div>
+      <div id="D8" class="dark">
+        <img
+          src="assets/images/chess-queen-solid.svg"
+          alt="Queen piece"
+          id="black-queen-1"
+          class="chess-piece"
+        />
+      </div>
+      <div id="E8" class="light">
+        <img
+          src="assets/images/chess-king-solid.svg"
+          alt="King piece"
+          id="black-king-1"
+          class="chess-piece"
+        />
+      </div>
+      <div id="F8" class="dark">
+        <img
+          src="assets/images/chess-bishop-solid.svg"
+          alt="bishop piece"
+          id="black-bishop-2"
+          class="chess-piece"
+        />
+      </div>
+      <div id="G8" class="light">
+        <img
+          src="assets/images/chess-knight-solid.svg"
+          alt="Knight piece"
+          id="black-knight-2"
+          class="chess-piece"
+        />
+      </div>
+      <div id="H8" class="dark">
+        <img
+          src="assets/images/chess-rook-solid.svg"
+          alt="Rook piece"
+          id="black-rook-2"
+          class="chess-piece"
+        />
+      </div>
+      <div class="board-code"><span>8</span></div>
 
-			<div class="board-code"><span>6</span></div>
-			<div id="A6" class="light"></div>
-			<div id="B6" class="dark"></div>
-			<div id="C6" class="light"></div>
-			<div id="D6" class="dark"></div>
-			<div id="E6" class="light"></div>
-			<div id="F6" class="dark"></div>
-			<div id="G6" class="light"></div>
-			<div id="H6" class="dark"></div>
-			<div class="board-code"><span>6</span></div>
+      <div class="board-code"><span>7</span></div>
+      <div id="A7" class="dark">
+        <img
+          src="assets/images/chess-pawn-solid.svg"
+          alt="pawn piece"
+          id="black-pawn-1"
+          class="chess-piece"
+        />
+      </div>
+      <div id="B7" class="light">
+        <img
+          src="assets/images/chess-pawn-solid.svg"
+          alt="pawn piece"
+          id="black-pawn-2"
+          class="chess-piece"
+        />
+      </div>
+      <div id="C7" class="dark">
+        <img
+          src="assets/images/chess-pawn-solid.svg"
+          alt="pawn piece"
+          id="black-pawn-3"
+          class="chess-piece"
+        />
+      </div>
+      <div id="D7" class="light">
+        <img
+          src="assets/images/chess-pawn-solid.svg"
+          alt="pawn piece"
+          id="black-pawn-4"
+          class="chess-piece"
+        />
+      </div>
+      <div id="E7" class="dark">
+        <img
+          src="assets/images/chess-pawn-solid.svg"
+          alt="pawn piece"
+          id="black-pawn-5"
+          class="chess-piece"
+        />
+      </div>
+      <div id="F7" class="light">
+        <img
+          src="assets/images/chess-pawn-solid.svg"
+          alt="pawn piece"
+          id="black-pawn-6"
+          class="chess-piece"
+        />
+      </div>
+      <div id="G7" class="dark">
+        <img
+          src="assets/images/chess-pawn-solid.svg"
+          alt="pawn piece"
+          id="black-pawn-7"
+          class="chess-piece"
+        />
+      </div>
+      <div id="H7" class="light">
+        <img
+          src="assets/images/chess-pawn-solid.svg"
+          alt="pawn piece"
+          id="black-pawn-8"
+          class="chess-piece"
+        />
+      </div>
+      <div class="board-code"><span>7</span></div>
 
-			<div class="board-code"><span>5</span></div>
-			<div id="A5" class="dark"></div>
-			<div id="B5" class="light"></div>
-			<div id="C5" class="dark"></div>
-			<div id="D5" class="light"></div>
-			<div id="E5" class="dark"></div>
-			<div id="F5" class="light"></div>
-			<div id="G5" class="dark"></div>
-			<div id="H5" class="light"></div>
-			<div class="board-code"><span>5</span></div>
+      <div class="board-code"><span>6</span></div>
+      <div id="A6" class="light"></div>
+      <div id="B6" class="dark"></div>
+      <div id="C6" class="light"></div>
+      <div id="D6" class="dark"></div>
+      <div id="E6" class="light"></div>
+      <div id="F6" class="dark"></div>
+      <div id="G6" class="light"></div>
+      <div id="H6" class="dark"></div>
+      <div class="board-code"><span>6</span></div>
 
-			<div class="board-code"><span>4</span></div>
-			<div id="A4" class="light"></div>
-			<div id="B4" class="dark"></div>
-			<div id="C4" class="light"></div>
-			<div id="D4" class="dark"></div>
-			<div id="E4" class="light"></div>
-			<div id="F4" class="dark"></div>
-			<div id="G4" class="light"></div>
-			<div id="H4" class="dark"></div>
-			<div class="board-code"><span>4</span></div>
+      <div class="board-code"><span>5</span></div>
+      <div id="A5" class="dark"></div>
+      <div id="B5" class="light"></div>
+      <div id="C5" class="dark"></div>
+      <div id="D5" class="light"></div>
+      <div id="E5" class="dark"></div>
+      <div id="F5" class="light"></div>
+      <div id="G5" class="dark"></div>
+      <div id="H5" class="light"></div>
+      <div class="board-code"><span>5</span></div>
 
-			<div class="board-code"><span>3</span></div>
-			<div id="A3" class="dark"></div>
-			<div id="B3" class="light"></div>
-			<div id="C3" class="dark"></div>
-			<div id="D3" class="light"></div>
-			<div id="E3" class="dark"></div>
-			<div id="F3" class="light"></div>
-			<div id="G3" class="dark"></div>
-			<div id="H3" class="light"></div>
-			<div class="board-code"><span>3</span></div>
+      <div class="board-code"><span>4</span></div>
+      <div id="A4" class="light"></div>
+      <div id="B4" class="dark"></div>
+      <div id="C4" class="light"></div>
+      <div id="D4" class="dark"></div>
+      <div id="E4" class="light"></div>
+      <div id="F4" class="dark"></div>
+      <div id="G4" class="light"></div>
+      <div id="H4" class="dark"></div>
+      <div class="board-code"><span>4</span></div>
 
-			<div class="board-code"><span>2</span></div>
-			<div id="A2" class="light"></div>
-			<div id="B2" class="dark"></div>
-			<div id="C2" class="light"></div>
-			<div id="D2" class="dark"></div>
-			<div id="E2" class="light"></div>
-			<div id="F2" class="dark"></div>
-			<div id="G2" class="light"></div>
-			<div id="H2" class="dark"></div>
-			<div class="board-code"><span>2</span></div>
+      <div class="board-code"><span>3</span></div>
+      <div id="A3" class="dark"></div>
+      <div id="B3" class="light"></div>
+      <div id="C3" class="dark"></div>
+      <div id="D3" class="light"></div>
+      <div id="E3" class="dark"></div>
+      <div id="F3" class="light"></div>
+      <div id="G3" class="dark"></div>
+      <div id="H3" class="light"></div>
+      <div class="board-code"><span>3</span></div>
 
-			<div class="board-code"><span>1</span></div>
-			<div id="A1" class="dark"></div>
-			<div id="B1" class="light"></div>
-			<div id="C1" class="dark"></div>
-			<div id="D1" class="light"></div>
-			<div id="E1" class="dark"></div>
-			<div id="F1" class="light"></div>
-			<div id="G1" class="dark"></div>
-			<div id="H1" class="light"></div>
-			<div class="board-code"><span>1</span></div>
+      <div class="board-code"><span>2</span></div>
+      <div id="A2" class="light">
+        <img
+          src="assets/images/chess-pawn-regular.svg"
+          alt="white pawn"
+          id="white-pawn-1"
+          class="chess-piece"
+        />
+      </div>
+      <div id="B2" class="dark">
+        <img
+          src="assets/images/chess-pawn-regular.svg"
+          alt="white pawn"
+          id="white-pawn-2"
+          class="chess-piece"
+        />
+      </div>
+      <div id="C2" class="light">
+        <img
+          src="assets/images/chess-pawn-regular.svg"
+          alt="white pawn"
+          id="white-pawn-3"
+          class="chess-piece"
+        />
+      </div>
+      <div id="D2" class="dark">
+        <img
+          src="assets/images/chess-pawn-regular.svg"
+          alt="white pawn"
+          id="white-pawn-4"
+          class="chess-piece"
+        />
+      </div>
+      <div id="E2" class="light">
+        <img
+          src="assets/images/chess-pawn-regular.svg"
+          alt="white pawn"
+          id="white-pawn-5"
+          class="chess-piece"
+        />
+      </div>
+      <div id="F2" class="dark">
+        <img
+          src="assets/images/chess-pawn-regular.svg"
+          alt="white pawn"
+          id="white-pawn-6"
+          class="chess-piece"
+        />
+      </div>
+      <div id="G2" class="light">
+        <img
+          src="assets/images/chess-pawn-regular.svg"
+          alt="white pawn"
+          id="white-pawn-7"
+          class="chess-piece"
+        />
+      </div>
+      <div id="H2" class="dark">
+        <img
+          src="assets/images/chess-pawn-regular.svg"
+          alt="white pawn"
+          id="white-pawn-8"
+          class="chess-piece"
+        />
+      </div>
+      <div class="board-code"><span>2</span></div>
 
-			<div class="board-code"></div>
-			<div class="board-code"><span>A</span></div>
-			<div class="board-code"><span>B</span></div>
-			<div class="board-code"><span>C</span></div>
-			<div class="board-code"><span>D</span></div>
-			<div class="board-code"><span>E</span></div>
-			<div class="board-code"><span>F</span></div>
-			<div class="board-code"><span>G</span></div>
-			<div class="board-code"><span>H</span></div>
-			<div class="board-code"></div>
-		</section>
-		<!-- The Chessboard end -->
+      <div class="board-code"><span>1</span></div>
+      <div id="A1" class="dark">
+        <img
+          src="assets/images/chess-rook-regular.svg"
+          alt="white rook"
+          id="white-rook-1"
+          class="chess-piece"
+        />
+      </div>
+      <div id="B1" class="light">
+        <img
+          src="assets/images/chess-knight-regular.svg"
+          alt="white knight"
+          id="white-knight-1"
+          class="chess-piece"
+        />
+      </div>
+      <div id="C1" class="dark">
+        <img
+          src="assets/images/chess-bishop-regular.svg"
+          alt="white bishop"
+          id="white-bishop-1"
+          class="chess-piece"
+        />
+      </div>
+      <div id="D1" class="light">
+        <img
+          src="assets/images/chess-queen-regular.svg"
+          alt="white queen"
+          id="white-queen-1"
+          class="chess-piece"
+        />
+      </div>
+      <div id="E1" class="dark">
+        <img
+          src="assets/images/chess-king-regular.svg"
+          alt="white king"
+          id="white-king-1"
+          class="chess-piece"
+        />
+      </div>
+      <div id="F1" class="light">
+        <img
+          src="assets/images/chess-bishop-regular.svg"
+          alt="white bishop"
+          id="white-bishop-2"
+          class="chess-piece"
+        />
+      </div>
+      <div id="G1" class="dark">
+        <img
+          src="assets/images/chess-knight-regular.svg"
+          alt="white knight"
+          id="white-knight-2"
+          class="chess-piece"
+        />
+      </div>
+      <div id="H1" class="light">
+        <img
+          src="assets/images/chess-rook-regular.svg"
+          alt="white rook"
+          id="white-rook-2"
+          class="chess-piece"
+        />
+      </div>
+      <div class="board-code"><span>1</span></div>
 
-		<!-- Footer start -->
-		<footer>
-			<p>Created by: <a href="#"></a> <a href="#"></a> <a href="#"></a> <a href="#"></a> <a href="#"></a></p>
-		</footer>
-		<!-- Footer end -->
-		<script src="assets/js/main.js"></script>
-	</body>
+      <div class="board-code"></div>
+      <div class="board-code"><span>A</span></div>
+      <div class="board-code"><span>B</span></div>
+      <div class="board-code"><span>C</span></div>
+      <div class="board-code"><span>D</span></div>
+      <div class="board-code"><span>E</span></div>
+      <div class="board-code"><span>F</span></div>
+      <div class="board-code"><span>G</span></div>
+      <div class="board-code"><span>H</span></div>
+      <div class="board-code"></div>
+    </section>
+    <!-- The Chessboard end -->
+
+    <!-- Buttons -->
+    <section>
+      <button>Start</button>
+      <button>Pause</button>
+      <button>Undo</button>
+      <button>Reset</button>
+    </section>
+
+    <!-- Footer start -->
+    <footer>
+      <p>
+        Created by: <a href="#"></a> <a href="#"></a> <a href="#"></a>
+        <a href="#"></a> <a href="#"></a>
+      </p>
+    </footer>
+    <!-- Footer end -->
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>

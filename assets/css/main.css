@@ -1,88 +1,110 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #81C8FF;
-    text-align: center;
-    color: #000;
+  background-color: #81c8ff;
+  text-align: center;
+  color: #000;
 }
 h1 {
-    font-size: 48px;
-    font-weight: 700;
+  font-size: 48px;
+  font-weight: 700;
 }
-
 
 /*--------------------
     CHESSBOARD
 --------------------*/
 
 .board {
-    /* display board in 10x10 grid */
-    display: grid;
-    grid-template-columns: 1fr repeat(8, 2fr) 1fr;
-    grid-template-rows: 1fr repeat(8, 2fr) 1fr;
+  /* display board in 10x10 grid */
+  display: grid;
+  grid-template-columns: 28px repeat(8, 56px) 28px;
+  grid-template-rows: 28px repeat(8, 56px) 28px;
 
-    /* size and center board on screen */
-    height: 500px;
-    width: 500px;
-    margin: 30px auto;
-    
+  /* size and center board on screen */
+  height: 504px;
+  width: 504px;
+  margin: 30px auto;
+
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 /* Code for the outer edges of the board */
 .board-code {
-    background-color: #000;
-    color: #fff;
-    text-align: center;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
 }
 
 /* Center text in outer edges of board */
 .board-code span {
-    display: block;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* light colored squares on board */
 .light {
-    background-color: #EFF7FA;
+  background-color: #eff7fa;
 }
 
 /* dark colored squares on board */
 .dark {
-    background-color: #336699;
+  background-color: #336699;
 }
 
-.light:hover, .dark:hover {
-    background-color: #10C212;
-    border: 4px solid #2EFF31;
+.light, .dark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.light:hover,
+.dark:hover {
+  background-color: #10c212;
+  border: 4px solid #2eff31;
+}
 
 /*--------------------
     MEDIA QUERIES
 --------------------*/
 
 /* resize chessboard for tablets */
-@media screen and (max-width: 768px){
-    .board {
-        height: 350px;
-        width: 350px;
-    }
-    
+@media screen and (max-width: 768px) {
+  .board {
+    grid-template-columns: 25px repeat(8, 50px) 25px;
+    grid-template-rows: 25px repeat(8, 50px) 25px;
+
+    height: 450px;
+    width: 450px;
+  }
 }
 
 /* resize chessboards for phone screens */
-@media screen and (max-width: 480px){
-    .board {
-        height: 250px;
-        width: 250px;
-    }
+@media screen and (max-width: 480px) {
+  .board {
+    grid-template-columns: 16px repeat(8, 32px) 16px;
+    grid-template-rows: 16px repeat(8, 32px) 16px;
 
-    h1 {
-        font-size: 36px;
-    }
-    
+    height: 288px;
+    width: 288px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+}
+
+/***************
+
+  CHESS PIECES
+
+***************/
+
+.chess-piece {
+  max-width: 70;
+  max-height: 70%;
 }
