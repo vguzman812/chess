@@ -102,3 +102,9 @@ h1 {
   max-width: 70;
   max-height: 70%;
 }
+
+.board > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
