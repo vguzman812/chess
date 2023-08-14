@@ -19,12 +19,12 @@ h1 {
 .board {
   /* display board in 10x10 grid */
   display: grid;
-  grid-template-columns: 1fr repeat(8, 2fr) 1fr;
-  grid-template-rows: 1fr repeat(8, 2fr) 1fr;
+  grid-template-columns: 28px repeat(8, 56px) 28px;
+  grid-template-rows: 28px repeat(8, 56px) 28px;
 
   /* size and center board on screen */
-  height: 500px;
-  width: 500px;
+  height: 504px;
+  width: 504px;
   margin: 30px auto;
 
   padding-left: 10px;
@@ -69,6 +69,9 @@ h1 {
 /* resize chessboard for tablets */
 @media screen and (max-width: 768px) {
   .board {
+    grid-template-columns: 25px repeat(8, 50px) 25px;
+    grid-template-rows: 25px repeat(8, 50px) 25px;
+
     height: 450px;
     width: 450px;
   }
@@ -77,8 +80,11 @@ h1 {
 /* resize chessboards for phone screens */
 @media screen and (max-width: 480px) {
   .board {
-    height: 350px;
-    width: 350px;
+    grid-template-columns: 16px repeat(8, 32px) 16px;
+    grid-template-rows: 16px repeat(8, 32px) 16px;
+
+    height: 288px;
+    width: 288px;
   }
 
   h1 {
