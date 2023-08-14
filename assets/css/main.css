@@ -56,6 +56,12 @@ h1 {
   background-color: #336699;
 }
 
+.light, .dark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .light:hover,
 .dark:hover {
   background-color: #10c212;
@@ -101,10 +107,4 @@ h1 {
 .chess-piece {
   max-width: 70;
   max-height: 70%;
-}
-
-.board > div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
