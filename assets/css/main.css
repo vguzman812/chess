@@ -151,6 +151,16 @@ h1 {
   max-height: 60%;
 }
 
+#black-rook-1 {
+  max-width: 60%;
+  max-height: 60%;
+}
+
+#black-rook-2 {
+  max-width: 60%;
+  max-height: 60%;
+}
+
 #black-king-1 {
   max-width: 60%;
   max-height: 60%;
@@ -222,6 +232,16 @@ h1 {
 }
 
 #white-bishop-2 {
+  max-width: 60%;
+  max-height: 60%;
+}
+
+#white-rook-1 {
+  max-width: 60%;
+  max-height: 60%;
+}
+
+#white-rook-2 {
   max-width: 60%;
   max-height: 60%;
 }
