@@ -108,3 +108,26 @@ h1 {
   max-width: 70;
   max-height: 70%;
 }
+
+
+/*--------------------
+    BUTTONS
+--------------------*/
+
+button {
+  width: 60px;
+  height: 30px;
+
+  border: 1px solid #000;
+  border-radius: 5px;
+
+  background-color: #ffb481;
+
+  color: black;
+
+  font-weight: 700;
+}
+button:hover {
+  background-color: #FE2B69;
+  color: white;
+}
