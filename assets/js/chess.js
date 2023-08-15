@@ -197,8 +197,8 @@ class Piece {
   }
 }
 
-const whitePawn = Piece.createPiece(BOARD_PIECES.wP);
-console.log(whitePawn)
+// const whitePawn = Piece.createPiece(BOARD_PIECES.wP);
+// console.log(whitePawn);
 
 // Player constructor to create players(b&w)
 class Player {
@@ -206,40 +206,53 @@ class Player {
     this.color = color;
     this.pieces = pieces;
   }
-  getPieces() {
-    return this.pieces;
-  }
 
-  isMoveValid(piece, target) {
-    // logic to validate if move is possible
-  }
+  // Creating pieces and putting them into arrays for each player(W&B)
+  static createPieces(color) {
+    const pieces = [];
 
-  movePiece(piece, target) {
-    if (this.isMoveValid) {
-      // logic to move piece after move have been validated.
+    for (let i = 0; i <= 7; i++) {
+      pieces.push(
+        Piece.createPiece(color === "White" ? BOARD_PIECES.wP : BOARD_PIECES.bP)
+      );
     }
-  }
+    // Order of major pieces (Queen and King)
+    const majorPieceOrderWhite = [
+      BOARD_PIECES.wR,
+      BOARD_PIECES.wN,
+      BOARD_PIECES.wB,
+      BOARD_PIECES.wQ,
+      BOARD_PIECES.wK,
+      BOARD_PIECES.wB,
+      BOARD_PIECES.wN,
+      BOARD_PIECES.wR,
+    ];
+    const majorPieceOrderBlack = [
+      BOARD_PIECES.bR,
+      BOARD_PIECES.bN,
+      BOARD_PIECES.bB,
+      BOARD_PIECES.bQ,
+      BOARD_PIECES.bK,
+      BOARD_PIECES.bB,
+      BOARD_PIECES.bN,
+      BOARD_PIECES.bR,
+    ];
 
-  removePiece(pieceToRemove) {
-    // code for taking piece off the board when taken
-  }
-  movePawn() {
-    // code for moving pawns
-  }
-  moveRook() {
-    //code for moving rooks
-  }
-  moveKnight() {
-    //code for moving knights
-  }
-  moveBishop() {
-    // code for moving bishops
-  }
-  moveQueen() {
-    //code for moving queen
-  }
-  moveKing() {
-    //code for moving king
+    if (color === "Black") {
+      // Add black major pieces in reverse order
+      majorPieceOrderBlack.forEach((pieceType) => {
+        const piece = Piece.createPiece(pieceType);
+        pieces.push(piece);
+      });
+    } else {
+      // Add white major pieces
+      majorPieceOrderWhite.forEach((pieceType) => {
+        const piece = Piece.createPiece(pieceType);
+        pieces.push(piece);
+      });
+    }
+
+    return pieces;
   }
 
   //UNFINISHED CODE BELOW
@@ -302,6 +315,24 @@ const whitePlayer = new Player("White", whitePieces);
 const blackPlayer = new Player("Black", blackPieces);
 console.log(whitePieces);
 console.log(blackPieces);
+
+// Object to change the turn for each player;
+let playerTurns = {
+  white: true,
+  black: false,
+  changeTurn() {
+    this.white = !this.white;
+    this.black = !this.black;
+  },
+};
+
+const whitePieces = Player.createPieces("White");
+const blackPieces = Player.createPieces("Black");
+
+const whitePlayer = new Player("White", whitePieces);
+const blackPlayer = new Player("Black", blackPieces);
+console.log(whitePlayer);
+console.log(blackPlayer);
 
 // Object to change the turn for each player;
 let playerTurns = {
