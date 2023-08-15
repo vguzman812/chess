@@ -98,13 +98,13 @@ const createBoard = () => {
   );
 
   // Define the range for the central 8x8 square
-  const startRank = RANKS.rank8;
-  const endRank = RANKS.rank1;
+  const startRank = RANKS.rank1;
+  const endRank = RANKS.rank8;
   const startFile = FILES.fileA;
   const endFile = FILES.fileH;
 
   // Loop through the range and fill the central 8x8 square with board positions
-  for (let r = startRank; r >= endRank; r--) {
+  for (let r = startRank; r <= endRank; r++) {
     for (let f = startFile; f <= endFile; f++) {
       const sq = fileRankBoard(f, r);
       boardArray[sq] = { file: f, rank: r };
@@ -254,77 +254,7 @@ class Player {
 
     return pieces;
   }
-
-  //UNFINISHED CODE BELOW
-
-  static createPieces(color) {
-    const pieces = [];
-
-    for (let i = 0; i <= 7; i++) {
-      pieces.push(
-        Piece.createPiece(color === "White" ? BOARD_PIECES.wP : BOARD_PIECES.bP)
-      );
-    }
-    // Order of major pieces (Queen and King)
-    const majorPieceOrder = [
-      BOARD_PIECES.wR,
-      BOARD_PIECES.wN,
-      BOARD_PIECES.wB,
-      BOARD_PIECES.wQ,
-      BOARD_PIECES.wK,
-    ];
-
-    // Order of minor pieces (Rooks, Knights, and Bishops)
-    const minorPieceOrder = [BOARD_PIECES.wN, BOARD_PIECES.wB, BOARD_PIECES.wR];
-
-    // Create reversed orders for black pieces
-    const reverseMajorPieceOrder = majorPieceOrder.slice().reverse();
-    const reverseMinorPieceOrder = minorPieceOrder.slice().reverse();
-
-    if (color === "Black") {
-      // Add black major pieces in reverse order
-      reverseMajorPieceOrder.forEach((pieceType) => {
-        const piece = Piece.createPiece(pieceType);
-        pieces.push(piece);
-      });
-      // Add black minor pieces in reverse order
-      reverseMinorPieceOrder.forEach((pieceType) => {
-        const piece = Piece.createPiece(pieceType);
-        pieces.push(piece);
-      });
-    } else {
-      // Add white major pieces
-      majorPieceOrder.forEach((pieceType) => {
-        const piece = Piece.createPiece(pieceType);
-        pieces.push(piece);
-      });
-      // Add white minor pieces
-      minorPieceOrder.forEach((pieceType) => {
-        const piece = Piece.createPiece(pieceType);
-        pieces.push(piece);
-      });
-    }
-
-    return pieces;
-  }
 }
-const whitePieces = Player.createPieces("White");
-const blackPieces = Player.createPieces("Black");
-
-const whitePlayer = new Player("White", whitePieces);
-const blackPlayer = new Player("Black", blackPieces);
-console.log(whitePieces);
-console.log(blackPieces);
-
-// Object to change the turn for each player;
-let playerTurns = {
-  white: true,
-  black: false,
-  changeTurn() {
-    this.white = !this.white;
-    this.black = !this.black;
-  },
-};
 
 const whitePieces = Player.createPieces("White");
 const blackPieces = Player.createPieces("Black");

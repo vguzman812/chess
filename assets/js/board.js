@@ -44,25 +44,25 @@ const fenToPosition = (fen) => {
 const updateBoardPositions = (fenPosition) => {
   // Map values for pieces
   const pieceMap = { 
-    'k': { type: 'king', color: 'white' },
-    'q': { type: 'queen', color: 'white' },
-    'b': { type: 'bishop', color: 'white' },
-    'n': { type: 'knight', color: 'white' },
-    'r': { type: 'rook', color: 'white' },
-    'p': { type: 'pawn', color: 'white' },
+    'K': { type: 'king', color: 'white' },
+    'Q': { type: 'queen', color: 'white' },
+    'B': { type: 'bishop', color: 'white' },
+    'N': { type: 'knight', color: 'white' },
+    'R': { type: 'rook', color: 'white' },
+    'P': { type: 'pawn', color: 'white' },
 
-    'K': { type: 'king', color: 'black' },
-    'Q': { type: 'queen', color: 'black' },
-    'B': { type: 'bishop', color: 'black' },
-    'N': { type: 'knight', color: 'black' },
-    'R': { type: 'rook', color: 'black' },
-    'P': { type: 'pawn', color: 'black' }
+    'k': { type: 'king', color: 'black' },
+    'q': { type: 'queen', color: 'black' },
+    'b': { type: 'bishop', color: 'black' },
+    'n': { type: 'knight', color: 'black' },
+    'r': { type: 'rook', color: 'black' },
+    'p': { type: 'pawn', color: 'black' }
   }
 
   const createPieceElement = (color, pieceType, square) => {
     // Create piece element with dynamic template strings
     const pieceElement = document.createElement('img');
-    pieceElement.src = `assets/images/chess-${pieceType}-${color === 'black' ? 'regular' : 'solid' }.svg`
+    pieceElement.src = `assets/images/chess-${pieceType}-${color === 'white' ? 'regular' : 'solid' }.svg`
     pieceElement.alt = `${color} ${pieceType}`
     pieceElement.id = `${color}-${pieceType}-${square}`;
     pieceElement.className = 'chess-piece';
@@ -101,4 +101,5 @@ const updateBoardPositions = (fenPosition) => {
 
 const DEFAULT_POSITION = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
 const position = fenToPosition(DEFAULT_POSITION);
+console.log(position)
 updateBoardPositions(position);
