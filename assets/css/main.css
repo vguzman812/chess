@@ -12,6 +12,7 @@ h1 {
   font-weight: 700;
 }
 
+
 /*--------------------
     CHESSBOARD
 --------------------*/
@@ -32,14 +33,14 @@ h1 {
 }
 
 /* Code for the outer edges of the board */
-.board-code {
+.board-edge {
   background-color: #000;
   color: #fff;
   text-align: center;
 }
 
 /* Center text in outer edges of board */
-.board-code span {
+.board-edge span {
   display: block;
   position: relative;
   top: 50%;
@@ -55,18 +56,17 @@ h1 {
 .dark {
   background-color: #336699;
 }
-
-.light, .dark {
+ /* rules for each board square*/
+.board-square {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.light:hover,
-.dark:hover {
+.board-square:hover {
   background-color: #10c212;
   border: 4px solid #2eff31;
 }
+
 
 /*--------------------
     MEDIA QUERIES
@@ -98,6 +98,7 @@ h1 {
   }
 }
 
+
 /***************
 
   CHESS PIECES
@@ -108,3 +109,8 @@ h1 {
   max-width: 70;
   max-height: 70%;
 }
+
+
+/*--------------------
+    BUTTONS
+--------------------*/
