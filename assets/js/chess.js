@@ -206,104 +206,63 @@ class Player {
     this.color = color;
     this.pieces = pieces;
   }
-  getPieces() {
-    return this.pieces;
-  }
 
-  isMoveValid(piece, target) {
-    // logic to validate if move is possible
-  }
-
-  movePiece(piece, target) {
-    if (this.isMoveValid) {
-      // logic to move piece after move have been validated.
-    }
-  }
-
-  removePiece(pieceToRemove) {
-    // code for taking piece off the board when taken
-  }
-  movePawn() {
-    // code for moving pawns
-  }
-  moveRook() {
-    //code for moving rooks
-  }
-  moveKnight() {
-    //code for moving knights
-  }
-  moveBishop() {
-    // code for moving bishops
-  }
-  moveQueen() {
-    //code for moving queen
-  }
-  moveKing() {
-    //code for moving king
-  }
-  
   // Creating pieces and putting them into arrays for each player(W&B)
-//
-  //UNFINISHED CODE BELOW
-//
-//   static createPieces(color) {
-//     const pieces = [];
+  static createPieces(color) {
+    const pieces = [];
 
-//     for (let i = 0; i <= 7; i++) {
-//       pieces.push(
-//         Piece.createPiece(color === "White" ? BOARD_PIECES.wP : BOARD_PIECES.bP)
-//       );
-//     }
-//     // Order of major pieces (Queen and King)
-//     const majorPieceOrder = [
-//       BOARD_PIECES.wR,
-//       BOARD_PIECES.wN,
-//       BOARD_PIECES.wB,
-//       BOARD_PIECES.wQ,
-//       BOARD_PIECES.wK,
-//     ];
+    for (let i = 0; i <= 7; i++) {
+      pieces.push(
+        Piece.createPiece(color === "White" ? BOARD_PIECES.wP : BOARD_PIECES.bP)
+      );
+    }
+    // Order of major pieces (Queen and King)
+    const majorPieceOrderWhite = [
+      BOARD_PIECES.wR,
+      BOARD_PIECES.wN,
+      BOARD_PIECES.wB,
+      BOARD_PIECES.wQ,
+      BOARD_PIECES.wK,
+      BOARD_PIECES.wB,
+      BOARD_PIECES.wN,
+      BOARD_PIECES.wR,
+    ];
+    const majorPieceOrderBlack = [
+      BOARD_PIECES.bR,
+      BOARD_PIECES.bN,
+      BOARD_PIECES.bB,
+      BOARD_PIECES.bQ,
+      BOARD_PIECES.bK,
+      BOARD_PIECES.bB,
+      BOARD_PIECES.bN,
+      BOARD_PIECES.bR,
+    ];
 
-//     // Order of minor pieces (Rooks, Knights, and Bishops)
-//     const minorPieceOrder = [BOARD_PIECES.wN, BOARD_PIECES.wB, BOARD_PIECES.wR];
+    if (color === "Black") {
+      // Add black major pieces in reverse order
+      majorPieceOrderBlack.forEach((pieceType) => {
+        const piece = Piece.createPiece(pieceType);
+        pieces.push(piece);
+      });
+    } else {
+      // Add white major pieces
+      majorPieceOrderWhite.forEach((pieceType) => {
+        const piece = Piece.createPiece(pieceType);
+        pieces.push(piece);
+      });
+    }
 
-//     // Create reversed orders for black pieces
-//     const reverseMajorPieceOrder = majorPieceOrder.slice().reverse();
-//     const reverseMinorPieceOrder = minorPieceOrder.slice().reverse();
+    return pieces;
+  }
+}
 
-//     if (color === "Black") {
-//       // Add black major pieces in reverse order
-//       reverseMajorPieceOrder.forEach((pieceType) => {
-//         const piece = Piece.createPiece(pieceType);
-//         pieces.push(piece);
-//       });
-//       // Add black minor pieces in reverse order
-//       reverseMinorPieceOrder.forEach((pieceType) => {
-//         const piece = Piece.createPiece(pieceType);
-//         pieces.push(piece);
-//       });
-//     } else {
-//       // Add white major pieces
-//       majorPieceOrder.forEach((pieceType) => {
-//         const piece = Piece.createPiece(pieceType);
-//         pieces.push(piece);
-//       });
-//       // Add white minor pieces
-//       minorPieceOrder.forEach((pieceType) => {
-//         const piece = Piece.createPiece(pieceType);
-//         pieces.push(piece);
-//       });
-//     }
+const whitePieces = Player.createPieces("White");
+const blackPieces = Player.createPieces("Black");
 
-//     return pieces;
-//   }
-// }
-// const whitePieces = Player.createPieces("White");
-// const blackPieces = Player.createPieces("Black");
-
-// const whitePlayer = new Player("White", whitePieces);
-// const blackPlayer = new Player("Black", blackPieces);
-// console.log(whitePieces);
-// console.log(blackPieces);
+const whitePlayer = new Player("White", whitePieces);
+const blackPlayer = new Player("Black", blackPieces);
+console.log(whitePlayer);
+console.log(blackPlayer);
 
 // Object to change the turn for each player;
 let playerTurns = {
