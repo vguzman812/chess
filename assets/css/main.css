@@ -1,3 +1,88 @@
 * {
-    color: blue;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #81C8FF;
+    text-align: center;
+    color: #000;
+}
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+
+/*--------------------
+    CHESSBOARD
+--------------------*/
+
+.board {
+    /* display board in 10x10 grid */
+    display: grid;
+    grid-template-columns: 1fr repeat(8, 2fr) 1fr;
+    grid-template-rows: 1fr repeat(8, 2fr) 1fr;
+
+    /* size and center board on screen */
+    height: 500px;
+    width: 500px;
+    margin: 30px auto;
+    
+}
+
+/* Code for the outer edges of the board */
+.board-code {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+/* Center text in outer edges of board */
+.board-code span {
+    display: block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* light colored squares on board */
+.light {
+    background-color: #EFF7FA;
+}
+
+/* dark colored squares on board */
+.dark {
+    background-color: #336699;
+}
+
+.light:hover, .dark:hover {
+    background-color: #10C212;
+    border: 4px solid #2EFF31;
+}
+
+
+/*--------------------
+    MEDIA QUERIES
+--------------------*/
+
+/* resize chessboard for tablets */
+@media screen and (max-width: 768px){
+    .board {
+        height: 350px;
+        width: 350px;
+    }
+    
+}
+
+/* resize chessboards for phone screens */
+@media screen and (max-width: 480px){
+    .board {
+        height: 250px;
+        width: 250px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+    
 }
