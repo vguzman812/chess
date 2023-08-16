@@ -1,16 +1,19 @@
 // const DEFAULT_POSITION = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
+// lowercase - black piece | UPPERCASE - white piece
 
 // Here we define the chess peices and assign a corresponding integer
 // b - black | w - white
 // P - pawn | N - knight | B - bishop | R - rook | Q - queen | K - king
 const BOARD_PIECES = {
   empty: 0,
+  // white pieces
   wP: 1,
   wN: 2,
   wB: 3,
   wR: 4,
   wQ: 5,
   wK: 6,
+  // black pieces
   bP: 7,
   bN: 8,
   bB: 9,
@@ -90,6 +93,7 @@ function fileRankBoard(file, rank) {
   return 21 + file + rank * 10;
 }
 
+// Function to create the chessboard
 const createBoard = () => {
   // Create an array with 120 elements, initialized to offBoard
   const boardArray = Array.from(
@@ -113,12 +117,7 @@ const createBoard = () => {
   return boardArray;
 };
 
-const chessBoard = createBoard();
-
-console.log(chessBoard[99]);
-console.log(chessBoard[KEY_SQUARES.e8]);
-console.log(chessBoard[KEY_SQUARES.f1]);
-
+// const chessBoard = createBoard();
 // const chessBoard = [
 //   ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
 //   ["a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2"],
@@ -130,6 +129,7 @@ console.log(chessBoard[KEY_SQUARES.f1]);
 //   ["a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8"],
 // ];
 
+// Class to represent a chess piece
 class Piece {
   constructor(type, color) {
     this.type = type;
@@ -256,9 +256,14 @@ class Player {
   }
 }
 
+// Example usage of the above definitions
+const chessBoard = createBoard();
+console.log(chessBoard)
+console.log(chessBoard[99]);
+console.log(chessBoard[KEY_SQUARES.e8]);
+console.log(chessBoard[KEY_SQUARES.f1]);
 const whitePieces = Player.createPieces("White");
 const blackPieces = Player.createPieces("Black");
-
 const whitePlayer = new Player("White", whitePieces);
 const blackPlayer = new Player("Black", blackPieces);
 console.log(whitePlayer);
@@ -300,3 +305,4 @@ function isKingInCheck() {
 // function drop(e) {
 //   e.target.append(draggedPeice)
 // }
+

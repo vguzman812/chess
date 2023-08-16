@@ -1,34 +1,36 @@
 
-
+// Function to convert Forsyth Edwards Notation (FEN) to a chessboard position
 const fenToPosition = (fen) => {
-  const [ position, colorActive, castlingAvail, enPassant, halfMove, fullMoveNum ] = fen.split(' ');
+  // Split the FEN string into individual components
+  const [position, colorActive, castlingAvail, enPassant, halfMove, fullMoveNum] = fen.split(' ');
 
-  // Map through each char of the fen string and place peices/empty in correct order
+  // Convert the position part of the FEN string into rows
   const rows = position.split('/').map(row => {
     return row.split('').reduce((acc, char) => {
-      // Check if current char is a letter
-      if(isNaN(char)) {
-        acc.push(char)
+      // Check if the current character is a letter (chess piece)
+      if (isNaN(char)) {
+        acc.push(char);
       } else {
-        // If piece is a number, fill with empty string num amount of times
+        // If the character is a number, fill with empty strings that number of times (empty squares)
         acc = acc.concat(Array(Number(char)).fill(''));
       }
       return acc;
     }, []);
-  })
+  });
 
   const chessboard = {};
-  // Place pieces in board squares
+  // Place the pieces in the corresponding squares on the chessboard
   rows.forEach((row, rankIndex) => {
     row.forEach((piece, fileIndex) => {
       if (piece) {
-        // Convert files to ascii value, starting with 'A' - 65; Ranks 8 through 1
+        // Convert file index to ASCII value (A-H) and rank index to chess rank (8-1)
         const square = String.fromCharCode(65 + fileIndex) + (8 - rankIndex);
-        chessboard[square] = piece
+        chessboard[square] = piece;
       }
-    })
-  })
+    });
+  });
 
+  // Return the chessboard position and other game state information
   return {
     position: chessboard,
     colorActive,
@@ -36,13 +38,13 @@ const fenToPosition = (fen) => {
     enPassant,
     halfMove,
     fullMoveNum
-  }
-}
+  };
+};
 
 
-
+// Function to update the board positions based on the FEN position
 const updateBoardPositions = (fenPosition) => {
-  // Map values for pieces
+  // Mapping of chess pieces to their type and color
   const pieceMap = { 
     'K': { type: 'king', color: 'white' },
     'Q': { type: 'queen', color: 'white' },
@@ -59,6 +61,7 @@ const updateBoardPositions = (fenPosition) => {
     'p': { type: 'pawn', color: 'black' }
   }
 
+  // Function to create an HTML element for a chess piece
   const createPieceElement = (color, pieceType, square) => {
     // Create piece element with dynamic template strings
     const pieceElement = document.createElement('img');
@@ -69,6 +72,7 @@ const updateBoardPositions = (fenPosition) => {
     return pieceElement;
   }
 
+  // Function to update a specific square on the board with a piece
   const updateSquare = (squareId, piece) => {
     if (piece) {
       // Destructure type and color from pieceMap object
@@ -84,7 +88,7 @@ const updateBoardPositions = (fenPosition) => {
     }
   }
 
-  // Loop through each square on the board
+  // Loop through each square on the board and update it with the corresponding piece
   for (let fileIndex = 0; fileIndex < 8; fileIndex++) {
     for (let rankIndex = 0; rankIndex < 8; rankIndex++) {
       const square = String.fromCharCode(65 + fileIndex) + (8 - rankIndex);
@@ -98,6 +102,8 @@ const updateBoardPositions = (fenPosition) => {
     }
   }
 }
+
+// Example usage
 
 const DEFAULT_POSITION = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
 const position = fenToPosition(DEFAULT_POSITION);
