@@ -1,110 +1,116 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    background-color: #81c8ff;
-    text-align: center;
-    color: #000;
-  }
-  h1 {
-    font-size: 48px;
-    font-weight: 700;
-  }
-  
-  /*--------------------
-      CHESSBOARD
-  --------------------*/
-  
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #81c8ff;
+  text-align: center;
+  color: #000;
+}
+h1 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+
+/*--------------------
+    CHESSBOARD
+--------------------*/
+
+.board {
+  /* display board in 10x10 grid */
+  display: grid;
+  grid-template-columns: 28px repeat(8, 56px) 28px;
+  grid-template-rows: 28px repeat(8, 56px) 28px;
+
+  /* size and center board on screen */
+  height: 504px;
+  width: 504px;
+  margin: 30px auto;
+
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Code for the outer edges of the board */
+.board-edge {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+}
+
+/* Center text in outer edges of board */
+.board-edge span {
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* light colored squares on board */
+.light {
+  background-color: #eff7fa;
+}
+
+/* dark colored squares on board */
+.dark {
+  background-color: #336699;
+}
+ /* rules for each board square*/
+.board-square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.board-square:hover {
+  background-color: #10c212;
+  border: 4px solid #2eff31;
+}
+
+
+/*--------------------
+    MEDIA QUERIES
+--------------------*/
+
+/* resize chessboard for tablets */
+@media screen and (max-width: 768px) {
   .board {
-    /* display board in 10x10 grid */
-    display: grid;
-    grid-template-columns: 28px repeat(8, 56px) 28px;
-    grid-template-rows: 28px repeat(8, 56px) 28px;
-  
-    /* size and center board on screen */
-    height: 504px;
-    width: 504px;
-    margin: 30px auto;
-  
-    padding-left: 10px;
-    padding-right: 10px;
+    grid-template-columns: 25px repeat(8, 50px) 25px;
+    grid-template-rows: 25px repeat(8, 50px) 25px;
+
+    height: 450px;
+    width: 450px;
   }
-  
-  /* Code for the outer edges of the board */
-  .board-code {
-    background-color: #000;
-    color: #fff;
-    text-align: center;
+}
+
+/* resize chessboards for phone screens */
+@media screen and (max-width: 480px) {
+  .board {
+    grid-template-columns: 16px repeat(8, 32px) 16px;
+    grid-template-rows: 16px repeat(8, 32px) 16px;
+
+    height: 288px;
+    width: 288px;
   }
-  
-  /* Center text in outer edges of board */
-  .board-code span {
-    display: block;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+
+  h1 {
+    font-size: 36px;
   }
-  
-  /* light colored squares on board */
-  .light {
-    background-color: #eff7fa;
-  }
-  
-  /* dark colored squares on board */
-  .dark {
-    background-color: #336699;
-  }
-  
-  .light, .dark {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .light:hover,
-  .dark:hover {
-    background-color: #10c212;
-    border: 4px solid #2eff31;
-  }
-  
-  /*--------------------
-      MEDIA QUERIES
-  --------------------*/
-  
-  /* resize chessboard for tablets */
-  @media screen and (max-width: 768px) {
-    .board {
-      grid-template-columns: 25px repeat(8, 50px) 25px;
-      grid-template-rows: 25px repeat(8, 50px) 25px;
-  
-      height: 450px;
-      width: 450px;
-    }
-  }
-  
-  /* resize chessboards for phone screens */
-  @media screen and (max-width: 480px) {
-    .board {
-      grid-template-columns: 16px repeat(8, 32px) 16px;
-      grid-template-rows: 16px repeat(8, 32px) 16px;
-  
-      height: 288px;
-      width: 288px;
-    }
-  
-    h1 {
-      font-size: 36px;
-    }
-  }
-  
-  /***************
-  
-    CHESS PIECES
-  
-  ***************/
-  
-  .chess-piece {
-    max-width: 70;
-    max-height: 70%;
-  }
+}
+
+
+/***************
+
+  CHESS PIECES
+
+***************/
+
+.chess-piece {
+  max-width: 70;
+  max-height: 70%;
+}
+
+
+/*--------------------
+    BUTTONS
+--------------------*/
