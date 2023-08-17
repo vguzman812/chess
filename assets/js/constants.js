@@ -27,7 +27,7 @@ export const KEY_SQUARES = {
 };
 
 // Files for horizontal (x) axis
-const FILES = {
+export const FILES = {
     fileA: 0,
     fileB: 1,
     fileC: 2,
@@ -40,7 +40,7 @@ const FILES = {
 };
 
 // Ranks for vertical (y) axis
-const RANKS = {
+export const RANKS = {
     rank1: 0,
     rank2: 1,
     rank3: 2,
@@ -53,10 +53,10 @@ const RANKS = {
 };
 
 // Define the range for the central 8x8 square
-const startRank = RANKS.rank1;
-const endRank = RANKS.rank8;
-const startFile = FILES.fileA;
-const endFile = FILES.fileH;
+export const START_RANK = RANKS.rank1;
+export const END_RANK = RANKS.rank8;
+export const START_FILE = FILES.fileA;
+export const END_FILE = FILES.fileH;
 // start is A1 H1, end is A8 H8
 
 // Here we define the chess peices and assign a corresponding integer
@@ -81,7 +81,7 @@ export const BOARD_PIECES = {
 };
 
 // Mapping of chess pieces to their type and color
-const pieceMap = {
+export const PIECE_MAP = {
     'K': { type: 'king', color: 'white' },
     'Q': { type: 'queen', color: 'white' },
     'B': { type: 'bishop', color: 'white' },
@@ -98,7 +98,7 @@ const pieceMap = {
 }
 
 // Order of major pieces (Queen and King)
-const majorPieceOrderWhite = [
+export const MAJOR_PIECE_ORDER_WHITE = [
     BOARD_PIECES.wR,
     BOARD_PIECES.wN,
     BOARD_PIECES.wB,
@@ -109,7 +109,7 @@ const majorPieceOrderWhite = [
     BOARD_PIECES.wR,
 ];
 
-const majorPieceOrderBlack = [
+export const MAJOR_PIECE_ORDER_BLACK = [
     BOARD_PIECES.bR,
     BOARD_PIECES.bN,
     BOARD_PIECES.bB,
