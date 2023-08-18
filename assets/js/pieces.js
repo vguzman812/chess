@@ -67,7 +67,10 @@ export default class Piece {
         return new Piece(type, color);
     }
 
+
+    // I don't know that this needs to be here unless for creating a new piece like for pawn promotion
     // Function to create an HTML element for a chess piece
+    /*
     createPieceElement(color, pieceType, square) {
         // Create piece element with dynamic template strings
         const pieceElement = document.createElement('img');
@@ -77,6 +80,7 @@ export default class Piece {
         pieceElement.className = 'chess-piece';
         return pieceElement;
     }
+    */
 
 }
 

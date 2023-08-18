@@ -2,11 +2,3 @@
 This file is for linking and responsiveness purposes only. 
 NO CHESS LOGIC HERE OTHER THAN INITIALIZATION CALLS.
 */
-
-
-
- 
-  
-
-  
- 

@@ -2,6 +2,25 @@ import { KEY_SQUARES, BOARD_SQUARES, START_RANK, END_RANK, START_FILE, END_FILE,
 import Piece from './pieces.js';
 
 
+/*
+
+  READ ME if you will work on this class.
+
+  This Board class should be a mental model of the chessboard displayed in the HTML.
+  That means that this Board class will handle making the mental model of the chessboard, 
+  updating it's own mental model of the chessboard to mirror what is seen on the html side,
+  and using it's own mental model to validate moves. 
+  When validating moves, we currently should just return whether a move is possible or not.
+  In the future, we can update methods to show in the html what the possible moves for a piece are.
+  In the future, this board class will also likely check for if a move results in a change in game state,
+  such as if a move results in check or checkmate or stalemate.
+  I think it will be more accurate if this class updates its' own mental model of the board by
+  receiving a fen string from the Game class whenever there is a successful move. This gets rid of
+  the possibility of false positives from validating moves here and immediately updating the board here.
+  Again, this class should not alter any html for now.
+
+*/
+
 export default class Board {
   constructor() {
     this.boardArray = this.createBoard()
@@ -87,6 +106,7 @@ export default class Board {
 
 
   // Function to update a specific square on the board with a piece
+
   updateSquare(squareId, piece) {
     if (piece) {
       // Destructure type and color from pieceMap object
@@ -105,6 +125,49 @@ export default class Board {
   // Function to return the index of the current square
   fileRankBoard(file, rank) {
     return 21 + file + rank * 10;
+  }
+
+  validateMove(piece, from, to){
+    // high priority
+    // TODO: Implement a switch case to validate move based on piece type
+  }
+
+  validatePawn(from, to){
+    // TODO: Implement logic to check if the move is a valid one for pawns.
+  }
+
+  validateKnight(from, to){
+    // TODO: Implement logic to check if the move is a valid one for knights.
+  }
+
+  validateBishop(from, to){
+    // TODO: Implement logic to check if the move is a valid one for bishops.
+  }
+
+  validateRook(from, to){
+    // TODO: Implement logic to check if the move is a valid one for rooks.
+  }
+  validateQueen(from, to){
+    // TODO: Implement logic to check if the move is a valid one for queens.
+  }
+
+  validateKing(from, to){
+    // TODO: Implement logic to check if the move is a valid one for kings.
+  }
+
+  highlightMoves(piece) {
+    // low priority
+    // TODO: Implement logic to highlight possible moves for a given piece
+  }
+
+  clearHighlights() {
+    // low priority
+    // TODO: Logic to clear any highlighted squares
+  }
+
+  drawLegalMoves(piece, square) {
+    // low priortiy
+    // TODO: Logic to highlight or show legal moves for a selected piece
   }
 }
 
