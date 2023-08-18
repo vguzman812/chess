@@ -130,6 +130,11 @@ export default class Board {
   validateMove(piece, from, to){
     // high priority
     // TODO: Implement a switch case to validate move based on piece type
+    // These validation functions should be checking to see if the move is valid, not if the square is occupied or not. 
+    // for instance, check pawn would make sure that the user is trying to move the pawn two spaces forward if the pawn has not been moved yet,
+    // or one space forward if it has been moved
+    // or one space forward and one space left or right (diagonal)
+    // validatePawn does not currently need to check if there is something on the diagonal move, only that the move is a valid pawn move in general
   }
 
   validatePawn(from, to){
