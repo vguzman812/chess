@@ -8,8 +8,13 @@
   <body>
     <h1>PAWN TO E4</h1>
 
+    <section>
+      <p>it is <span id="player"></span>'s' turn</p>
+      <p id="info-display"></p>
+    </section>
+
     <!-- The Chessboard start -->
-    <section class="board">
+    <section class="board" id="gameboard">
       <div class="board-edge"></div>
       <div class="board-edge"><span>A</span></div>
       <div class="board-edge"><span>B</span></div>
@@ -23,12 +28,14 @@
 
       <div class="board-edge"><span>8</span></div>
       <div id="A8" class="board-square light">
-        <img
-          src="assets/images/chess-rook-solid.svg"
-          alt="Rook piece"
-          id="black-rook-1"
-          class="chess-piece"
-        />
+        <div>
+          <img
+            src="assets/images/chess-rook-solid.svg"
+            alt="Rook piece"
+            id="black-rook-1"
+            class="chess-piece"
+          />
+        </div>
       </div>
       <div id="B8" class="board-square dark">
         <img
@@ -345,6 +352,7 @@
       <div class="board-edge"></div>
     </section>
     <!-- The Chessboard end -->
+
 
     <!-- Buttons -->
     <section>

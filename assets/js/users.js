@@ -34,6 +34,24 @@ export default class Player {
 
         return pieces;
     }
+
+
+    resign() {
+        // low priority
+        // TODO: Logic for resigning
+    }
+
+    offerDraw() {
+        // low priority
+        // TODO: Logic for offering a draw
+    }
+
+    acceptDraw() {
+        // low priority
+        // TODO: Logic for accepting a draw
+    }
+
+
 }
 
 const whitePlayer = new Player("White", whitePieces);
