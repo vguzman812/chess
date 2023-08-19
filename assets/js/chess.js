@@ -46,7 +46,7 @@ export default class Game {
     e.preventDefault();
   }
 
-  displayError(message) {
+  displayInfo(message) {
     this.infoDisplay.textContent = message;
     setTimeout(() => {
       this.infoDisplay.textContent = "";
@@ -89,7 +89,7 @@ export default class Game {
       // if square is occupied and it is not opponent piece (meaning it is our own piece)
       // display error for 3 seconds.
       if (squareOccupied) {
-        this.displayError("You cannot move here. Invalid Move!");
+        this.displayInfo("You cannot move here. Invalid Move!");
       }
 
       // if we move the correct piece onto an empty square, put it there.
