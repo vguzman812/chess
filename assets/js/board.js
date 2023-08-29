@@ -1,6 +1,13 @@
-import { KEY_SQUARES, BOARD_SQUARES, START_RANK, END_RANK, START_FILE, END_FILE, PIECE_MAP } from './constants.js';
-import Piece from './pieces.js';
-
+import {
+  KEY_SQUARES,
+  BOARD_SQUARES,
+  START_RANK,
+  END_RANK,
+  START_FILE,
+  END_FILE,
+  PIECE_MAP,
+} from "./constants.js";
+import Piece from "./pieces.js";
 
 /*
 
@@ -23,7 +30,7 @@ import Piece from './pieces.js';
 
 export default class Board {
   constructor() {
-    this.boardArray = this.createBoard()
+    this.boardArray = this.createBoard();
   }
 
   // Function to create the chessboard
@@ -42,23 +49,30 @@ export default class Board {
       }
     }
     return boardArray;
-  };
+  }
 
   // const DEFAULT_POSITION = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
   // Function to convert Forsyth Edwards Notation (FEN) to a chessboard position
   fenToPosition(fen) {
     // Split the FEN string into individual components
-    const [position, colorActive, castlingAvail, enPassant, halfMove, fullMoveNum] = fen.split(' ');
+    const [
+      position,
+      colorActive,
+      castlingAvail,
+      enPassant,
+      halfMove,
+      fullMoveNum,
+    ] = fen.split(" ");
 
     // Convert the position part of the FEN string into rows
-    const rows = position.split('/').map(row => {
-      return row.split('').reduce((acc, char) => {
+    const rows = position.split("/").map((row) => {
+      return row.split("").reduce((acc, char) => {
         // Check if the current character is a letter (chess piece)
         if (isNaN(char)) {
           acc.push(char);
         } else {
           // If the character is a number, fill with empty strings that number of times (empty squares)
-          acc = acc.concat(Array(Number(char)).fill(''));
+          acc = acc.concat(Array(Number(char)).fill(""));
         }
         return acc;
       }, []);
@@ -83,9 +97,9 @@ export default class Board {
       castlingAvail,
       enPassant,
       halfMove,
-      fullMoveNum
+      fullMoveNum,
     };
-  };
+  }
 
   // Function to update the board positions based on the FEN position
   updateBoardPositions(fenPosition) {
@@ -98,12 +112,11 @@ export default class Board {
         const squareId = document.getElementById(square);
 
         if (squareId) {
-          this.updateSquare(squareId, piece)
+          this.updateSquare(squareId, piece);
         }
       }
     }
   }
-
 
   // Function to update a specific square on the board with a piece
 
@@ -112,13 +125,17 @@ export default class Board {
       // Destructure type and color from pieceMap object
       const { type, color } = PIECE_MAP[piece];
       // Clear any existing pieces from the current square
-      squareId.innerHTML = '';
-      const newPiece = new Piece()
-      const pieceElement = newPiece.createPieceElement(color, type, squareId.id)
+      squareId.innerHTML = "";
+      const newPiece = new Piece();
+      const pieceElement = newPiece.createPieceElement(
+        color,
+        type,
+        squareId.id
+      );
       // Append the piece to the current square
-      squareId.appendChild(pieceElement)
+      squareId.appendChild(pieceElement);
     } else {
-      squareId.innerHTML = '';
+      squareId.innerHTML = "";
     }
   }
 
@@ -127,37 +144,101 @@ export default class Board {
     return 21 + file + rank * 10;
   }
 
-  validateMove(piece, from, to){
+  validateMove(piece, from, to) {
     // high priority
     // TODO: Implement a switch case to validate move based on piece type
-    // These validation functions should be checking to see if the move is valid, not if the square is occupied or not. 
-    // for instance, check pawn would make sure that the user is trying to move the pawn two spaces forward if the pawn has not been moved yet,
+    // These validation functions should be checking to see if the move is valid, not if the square is occupied or not.
+    // for instance, check pawn would make sure that the user is trying to move the pawn two spaces forward if the pawn has not been
+    // moved yet,
     // or one space forward if it has been moved
     // or one space forward and one space left or right (diagonal)
     // validatePawn does not currently need to check if there is something on the diagonal move, only that the move is a valid pawn move in general
+    if (isValidPawnMove(isWhitePawn, sourceSquare, targetSquare)) {
+    }
+
+    // Reset source and target squares
+    sourceSquare = null;
+    targetSquare = null;
   }
 
-  validatePawn(from, to){
+  validatePawn(isWhitePawn, sourceSquare, targetSquare) {
     // TODO: Implement logic to check if the move is a valid one for pawns.
+    // Extract row and column indices from source and target squares
+    const sourceRow = parseInt(sourceSquare.dataset.row);
+    const sourceCol = parseInt(sourceSquare.dataset.col);
+    const targetRow = parseInt(targetSquare.dataset.row);
+    const targetCol = parseInt(targetSquare.dataset.col);
+
+    // Determine the direction of pawn movement (forward or backward based on its color)
+    const forwardDirection = isWhitePawn ? 1 : -1;
+
+    // Calculate the absolute difference in row and column indices
+    const rowDiff = forwardDirection * (targetRow - sourceRow);
+    const colDiff = Math.abs(targetCol - sourceCol);
+
+    // Pawn's first move can be two squares forward
+    if (
+      rowDiff === 2 &&
+      colDiff === 0 &&
+      ((isWhitePawn && sourceRow === 2) || (!isWhitePawn && sourceRow === 7))
+    ) {
+      return true;
+    }
+
+    // Pawn's regular move is one square forward
+    if (rowDiff === 1 && colDiff === 0) {
+      return true;
+    }
+
+    // Pawn can capture diagonally one square forward
+    if (rowDiff === 1 && colDiff === 1) {
+      return true;
+    }
+
+    // Implement en passant capturing if needed
+
+    // If none of the above conditions are met, it's an invalid move
+    return false;
   }
 
-  validateKnight(from, to){
+  validateKnight(from, to) {
     // TODO: Implement logic to check if the move is a valid one for knights.
   }
 
-  validateBishop(from, to){
+  validateBishop(from, to) {
     // TODO: Implement logic to check if the move is a valid one for bishops.
   }
 
-  validateRook(from, to){
+  validateRook(sourceSquare, targetSquare) {
     // TODO: Implement logic to check if the move is a valid one for rooks.
   }
-  validateQueen(from, to){
+  validateQueen(from, to) {
     // TODO: Implement logic to check if the move is a valid one for queens.
   }
 
-  validateKing(from, to){
-    // TODO: Implement logic to check if the move is a valid one for kings.
+  validateKing(sourceSquare, targetSquare) {
+    // Extract row and column indices from source and target squares
+    const sourceRow = parseInt(sourceSquare.dataset.row);
+    const sourceCol = parseInt(sourceSquare.dataset.col);
+    const targetRow = parseInt(targetSquare.dataset.row);
+    const targetCol = parseInt(targetSquare.dataset.col);
+
+    // Calculate the absolute difference in row and column indices
+    const rowDiff = Math.abs(targetRow - sourceRow);
+    const colDiff = Math.abs(targetCol - sourceCol);
+
+    // A valid king move is one where the king moves one square in any direction
+    if (
+      (rowDiff === 1 && colDiff === 0) || // Vertical move
+      (rowDiff === 0 && colDiff === 1) || // Horizontal move
+      (rowDiff === 1 && colDiff === 1)
+    ) {
+      // Diagonal move
+      return true;
+    }
+
+    // If none of the above conditions are met, it's an invalid move
+    return false;
   }
 
   highlightMoves(piece) {
@@ -178,15 +259,14 @@ export default class Board {
 
 // Example usage
 
-
-
 const board = new Board();
 console.log(board);
 console.log(board.boardArray);
 console.log(board.boardArray[22]);
 console.log(board.boardArray[KEY_SQUARES.e8]);
 console.log(board.boardArray[KEY_SQUARES.f1]);
-const DEFAULT_POSITION = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
+const DEFAULT_POSITION =
+  "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 const position = board.fenToPosition(DEFAULT_POSITION);
-console.log(position.position)
+console.log(position.position);
 board.updateBoardPositions(position);
