@@ -1,10 +1,10 @@
-// import Board from "./board.js"
+import Board from "./board.js"
 import Player from "./users.js"
 // Class for Game, which includes the logic for managing the game
 export default class Game {
   constructor(fen) {
     this.fen = fen;
-    // this.board = new Board();
+    this.board = new Board();
     this.players = {
       white: new Player('white'),
       black: new Player('black'),
@@ -20,7 +20,6 @@ export default class Game {
     this.draggedElement;
 
     this.playerDisplay.textContent = this.currentPlayer
-
 
   }
 
@@ -110,7 +109,7 @@ export default class Game {
     // TODO: Logic to move a piece. This will likely move a piece after it has been validated and present a new, updated board
   }
 
-  isValidMove(piece, from, to) {
+  isValidMove(piece, color, from, to) {
     // High priority
     // TODO: Implement logic to validate if a move is legal. This will likely send a validation call to the board and return true or false
     // so something like Board.validateMove(piece=pawn, from=e6, to=e4) which board would validate if pawns in general can move like that

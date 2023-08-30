@@ -41,10 +41,13 @@ export default class Board {
         boardArray[sq] = { file: f, rank: r };
       }
     }
+    console.log(boardArray)
     return boardArray;
+    
   };
 
   // const DEFAULT_POSITION = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
+  // https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation
   // Function to convert Forsyth Edwards Notation (FEN) to a chessboard position
   fenToPosition(fen) {
     // Split the FEN string into individual components
@@ -127,7 +130,7 @@ export default class Board {
     return 21 + file + rank * 10;
   }
 
-  validateMove(piece, from, to){
+  validateMove(piece, color, from, to){
     // high priority
     // TODO: Implement a switch case to validate move based on piece type
     // These validation functions should be checking to see if the move is valid, not if the square is occupied or not. 
@@ -135,6 +138,35 @@ export default class Board {
     // or one space forward if it has been moved
     // or one space forward and one space left or right (diagonal)
     // validatePawn does not currently need to check if there is something on the diagonal move, only that the move is a valid pawn move in general
+    switch (piece) {
+      case pawn:
+        return this.validatePawn()
+        break;
+
+      case rook:
+        return this.validateRook()
+        break;
+
+      case knight:
+        return this.validateKnight()
+        break;
+
+      case bishop:
+        return this.validateBishop()
+        break;
+
+      case queen:
+        return this.validateQueen()
+        break;
+
+      case king:
+        return this.validateKing()
+        break;
+      
+      default:
+        throw new Error("Error in validateMove switch case. default case thrown")
+        break;
+    }
   }
 
   validatePawn(from, to){
@@ -181,12 +213,12 @@ export default class Board {
 
 
 const board = new Board();
-console.log(board);
-console.log(board.boardArray);
-console.log(board.boardArray[22]);
-console.log(board.boardArray[KEY_SQUARES.e8]);
-console.log(board.boardArray[KEY_SQUARES.f1]);
-const DEFAULT_POSITION = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
-const position = board.fenToPosition(DEFAULT_POSITION);
-console.log(position.position)
-board.updateBoardPositions(position);
+console.table(board);
+// console.log(board.boardArray);
+// console.log(board.boardArray[22]);
+// console.log(board.boardArray[KEY_SQUARES.e8]);
+// console.log(board.boardArray[KEY_SQUARES.f1]);
+// const DEFAULT_POSITION = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
+// const position = board.fenToPosition(DEFAULT_POSITION);
+// console.log(position.position)
+// board.updateBoardPositions(position);
