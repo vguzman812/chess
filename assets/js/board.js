@@ -141,31 +141,24 @@ export default class Board {
     switch (piece) {
       case pawn:
         return this.validatePawn()
-        break;
 
       case rook:
         return this.validateRook()
-        break;
 
       case knight:
         return this.validateKnight()
-        break;
 
       case bishop:
         return this.validateBishop()
-        break;
 
       case queen:
         return this.validateQueen()
-        break;
 
       case king:
         return this.validateKing()
-        break;
       
       default:
         throw new Error("Error in validateMove switch case. default case thrown")
-        break;
     }
   }
 
